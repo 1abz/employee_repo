@@ -4,7 +4,7 @@ def read_option():
         user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app, total: Total number of employees, retrieve: Retrieve employee using ID ")
         user_option = user_option.strip()
 
-        if user_option in ["add", "remove", "update", "list", "exit", "total", "retrieve"]:
+        if user_option in ["add", "remove", "update", "list", "exit", "total", "retrieve", ]:
             return user_option
         else:
             print("Error, You should select one of the options in the list")
@@ -191,7 +191,7 @@ if __name__ == "__main__":
             print("The user wants the total number of employees")
             print(len(all_employees_dict))
 
-        elif option == "retrieve:":
+        elif option == "retrieve":
             print("The user wants to retrieve an Employee using ID")
             employee_id = read_employee_id()
             print(all_employees_dict[employee_id])
