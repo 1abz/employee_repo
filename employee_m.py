@@ -1,10 +1,10 @@
 
 def read_option():
     while True:
-        user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app")
+        user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app, total: Total number of employees, retrieve: Retrieve employee using ID ")
         user_option = user_option.strip()
 
-        if user_option in ["add", "remove", "update", "list", "exit"]:
+        if user_option in ["add", "remove", "update", "list", "exit", "total"]:
             return user_option
         else:
             print("Error, You should select one of the options in the list")
@@ -136,7 +136,7 @@ def read_employee_id():
 
 def print_all_employees_data():
     for employee_id_key in all_employees_dict:
-        print(f"The data of the employee with Employee_ID = {employee_id_key}")
+        print(f"(The data of the employee with Employee_ID = {employee_id_key}")
         print(all_employees_dict[employee_id_key])
 
 def read_field_option():
@@ -187,8 +187,19 @@ if __name__ == "__main__":
             employee_id = read_employee_id()
             update_employee_data(employee_id)
 
+        elif option == "total":
+            print("The user wants the total number of employees")
+            print(len(all_employees_dict))
+
+        elif option == "retrieve:":
+            print("The user wants to retrieve an Employee using ID")
+            employee_id = read_employee_id()
+            print(all_employees_dict[employee_id])
+
         elif option == "exit":
             print("Thanks, see you later")
             break
+
+
         else:
-            print("Uknown option")
+            print("Unknown option")
