@@ -4,7 +4,7 @@ def read_option():
         user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app, total: Total number of employees, retrieve: Retrieve employee using ID ")
         user_option = user_option.strip()
 
-        if user_option in ["add", "remove", "update", "list", "exit", "total"]:
+        if user_option in ["add", "remove", "update", "list", "exit", "total", "retrieve"]:
             return user_option
         else:
             print("Error, You should select one of the options in the list")
