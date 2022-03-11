@@ -81,6 +81,7 @@ def read_day():
         else:
             print("Error, The Employee Birth Day should be a number")
 
+
 def read_is_graduated():
     while True:
         is_graduated_str = input("Have the Employee graduated from the univesity (y/n):")
@@ -96,12 +97,12 @@ def read_is_graduated():
 
 def create_employee_dictionary():
     employee_first_name = read_first_name()
-    employee_last_name  = read_last_name()
-    employee_position   = read_position()
+    employee_last_name = read_last_name()
+    employee_position = read_position()
 
     employee_birth_year = read_year()
     employee_birth_month = read_month()
-    employee_birth_day   = read_day()
+    employee_birth_day = read_day()
 
     employee_is_graduated = read_is_graduated()
 
@@ -149,6 +150,7 @@ def read_field_option():
         else:
             print("Please enter one of the mentioned fields")
 
+
 def update_employee_data(employee_id):
     field_option = read_field_option()
     if field_option == "first_name":
@@ -163,19 +165,23 @@ def update_employee_data(employee_id):
         new_position = read_position()
         all_employees_dict[employee_id]["employee_position"] = new_position
     elif field_option == "birth_year":
-        new_birth_year = employee_birth_year()
+        new_birth_year = read_year()
         all_employees_dict[employee_id]["birth_year"] = new_birth_year
     elif field_option == "birth_month":
-        new_birth_month = employee_birth_month()
+        new_birth_month = read_month()
         all_employees_dict[employee_id]["birth_month"] = new_birth_month
     elif field_option == "birth_day":
-        new_birth_day = employee_birth_day()
+        new_birth_day = read_day()
         all_employees_dict[employee_id]["birth_day"] = new_birth_day
     elif field_option == "is_graduated":
-        new_is_graduated = employee_is_graduated()
+        new_is_graduated = read_is_graduated()
         all_employees_dict[employee_id]["is_graduated"] = new_is_graduated
 
+
+
 if __name__ == "__main__":
+
+
     all_employees_dict = {}
     while True:
         option = read_option()
