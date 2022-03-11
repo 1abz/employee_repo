@@ -9,6 +9,7 @@ def read_option():
         else:
             print("Error, You should select one of the options in the list")
 
+
 def read_first_name():
     while True:
         first_name = input("Please Enter The Employee First Name:")
@@ -18,6 +19,7 @@ def read_first_name():
             return first_name
         else:
             print("Error, The Employee First Name should be at least 2 Characters")
+
 
 def read_last_name():
     while True:
@@ -29,6 +31,7 @@ def read_last_name():
         else:
             print("Error, The Employee Last Name should be at least 2 Characters")
 
+
 def read_position():
     while True:
         position = input("Please Enter The Employee Position:")
@@ -38,6 +41,7 @@ def read_position():
             return position
         else:
             print("Error, The Employee Position should be at least 1 Characters")
+
 
 def read_year():
     while True:
@@ -53,6 +57,7 @@ def read_year():
         else:
             print("Error, The Employee Birth Year should be a number")
 
+
 def read_month():
     while True:
         month_str = input("Please Enter the Employee Birth Month:")
@@ -66,6 +71,7 @@ def read_month():
                 print("Error, The Employee Birth Month should be between 1 and 12")
         else:
             print("Error, The Employee Birth Month should be a number")
+
 
 def read_day():
     while True:
@@ -95,6 +101,7 @@ def read_is_graduated():
         else:
             print("Error, Please Enter y or n")
 
+
 def create_employee_dictionary():
     employee_first_name = read_first_name()
     employee_last_name = read_last_name()
@@ -121,6 +128,7 @@ def create_employee_dictionary():
 
     return employee
 
+
 def read_employee_id():
     while True:
         id_str = input("Please Enter the Employee ID:")
@@ -135,10 +143,12 @@ def read_employee_id():
         else:
             print("Error, The Employee ID should be a number")
 
+
 def print_all_employees_data():
     for employee_id_key in all_employees_dict:
         print(f"(The data of the employee with Employee_ID = {employee_id_key}")
         print(all_employees_dict[employee_id_key])
+
 
 def read_field_option():
     while True:
