@@ -1,34 +1,14 @@
-class Employee:
+class Devices:
+    def __init__(self, make_, model_):
+        self.make = make_
+        self.model = model_
 
-    def __init__(self, f_name):
-        self.first_name = f_name
+    def get_make(self):
+        return self.make
 
-    def print_name(self):
-        print(self.first_name)
+    def set_make(self, new_make):
+        if len(new_make.strip()) >= 1:
+            self.make = new_make
 
-
-if __name__ == "__main__":
-    employee_list = []
-    employee_dict = {}
-    for index in range(4):
-        employee_first_name = input("Please Enter the Employee Name:")
-        employee = Employee(employee_first_name)
-
-        print(employee)
-        employee.print_name()
-        employee_dict[employee_first_name] = employee
-        print("----------------------------------")
-
-    '''
-    print("The list of all employees")
-    for employee_variable in employee_list:
-        print(employee_variable)
-        employee_variable.print_name()
-        print("----------------------------------")
-
-    '''
-    print("====================== Dictionary ================")
-    for employee_key in employee_dict:
-        print(employee_key)
-        print(employee_dict[employee_key])
-        employee_dict[employee_key].print_name()
+    def get_model(self, new_model):
+        return self.model
