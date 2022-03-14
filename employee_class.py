@@ -13,7 +13,53 @@ class Employee:
         self.ebirth_year = birthYear
         self.egraduated = grad
 
+    def set_first_name(self, first_name):
+        self.efirst_name = first_name
 
+    def set_last_name(self, last_name):
+        self.elast_name = last_name
+
+    def set_birth_year(self, birth_year):
+        self.ebirth_year = birth_year
+
+    def set_birth_month(self, birth_month):
+        self.ebirth_month = birth_month
+
+    def set_birth_day(self, birth_day):
+        self.ebirth_day = birth_day
+
+    def set_emp_position(self, emp_position):
+        self.eposition = emp_position
+
+    def set_is_graduated(self, grad):
+        self.egraduated = grad
+
+    def set_ids(self, emp_id):
+        self.eid = emp_id
+
+    def get_first_name(self):
+        return self.efirst_name
+
+    def get_last_name(self):
+        return self.elast_name
+
+    def get_birth_year(self):
+        return self.ebirth_year
+
+    def get_birth_month(self):
+        return self.ebirth_month
+
+    def get_birth_day(self):
+        return self.ebirth_day
+
+    def get_emp_position(self):
+        return self.eposition
+
+    def get_is_graduated(self):
+        return self.egraduated
+
+    def get_emp_id(self):
+        return self.eid
 
     def print_employee_info(self):
         print(f'Employee ID: {self.eid}')
@@ -34,96 +80,98 @@ class Employee:
             print("Updated Employee ID is not accepted")
 
 
-    def read_option():
-        while True:
-            user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app, total: Total number of employees, retrieve: Retrieve employee using ID ")
-            user_option = user_option.strip()
 
-            if user_option in ["add", "remove", "update", "list", "exit", "total", "retrieve", ]:
-                return user_option
+
+def read_option():
+    while True:
+        user_option = input("This is a list of your options: add: Add an Employee, remove: Remove an Employee, list: List the Employees ,update: Update Employee Data, exit: Exit the app, total: Total number of employees, retrieve: Retrieve employee using ID ")
+        user_option = user_option.strip()
+
+        if user_option in ["add", "remove", "update", "list", "exit", "total", "retrieve", ]:
+            return user_option
+        else:
+            print("Error, You should select one of the options in the list")
+
+
+def read_first_name():
+    while True:
+        first_name = input("Please Enter The Employee First Name:")
+        first_name = first_name.strip()
+
+        if len(first_name) >= 2:
+            return first_name
+        else:
+            print("Error, The Employee First Name should be at least 2 Characters")
+
+
+def read_last_name():
+    while True:
+        last_name = input("Please Enter The Employee Last Name:")
+        last_name = last_name.strip()
+
+        if len(last_name) >= 2:
+            return last_name
+        else:
+            print("Error, The Employee Last Name should be at least 2 Characters")
+
+
+def read_position():
+    while True:
+        position = input("Please Enter The Employee Position:")
+        position = position.strip()
+
+        if len(position) >= 1:
+            return position
+        else:
+            print("Error, The Employee Position should be at least 1 Characters")
+
+
+def read_year():
+    while True:
+        year_str = input("Please Enter the Employee Birth Year:")
+        year_str = year_str.strip()
+
+        if year_str.isdigit():
+            year = int(year_str)
+            if (year >= 1900) and (year <= 2004):
+                return year
             else:
-                print("Error, You should select one of the options in the list")
+                print("Error, The Employee Birth Year should be between 1900 and 2004")
+        else:
+            print("Error, The Employee Birth Year should be a number")
 
 
-    def read_first_name():
-        while True:
-            first_name = input("Please Enter The Employee First Name:")
-            first_name = first_name.strip()
+def read_month():
+    while True:
+        month_str = input("Please Enter the Employee Birth Month:")
+        month_str = month_str.strip()
 
-            if len(first_name) >= 2:
-                return first_name
+        if month_str.isdigit():
+            month = int(month_str)
+            if (month >= 1) and (month <= 12):
+                return month
             else:
-                print("Error, The Employee First Name should be at least 2 Characters")
+                print("Error, The Employee Birth Month should be between 1 and 12")
+        else:
+            print("Error, The Employee Birth Month should be a number")
 
 
-    def read_last_name():
-        while True:
-            last_name = input("Please Enter The Employee Last Name:")
-            last_name = last_name.strip()
+def read_day():
+    while True:
+        day_str = input("Please Enter the Employee Birth Day:")
+        day_str = day_str.strip()
 
-            if len(last_name) >= 2:
-                return last_name
+        if day_str.isdigit():
+            day = int(day_str)
+            if (day >= 1) and (day <= 31):
+                return day
             else:
-                print("Error, The Employee Last Name should be at least 2 Characters")
+                print("Error, The Employee Birth Day should be between 1 and 31")
+        else:
+            print("Error, The Employee Birth Day should be a number")
 
 
-    def read_position():
-        while True:
-            position = input("Please Enter The Employee Position:")
-            position = position.strip()
-
-            if len(position) >= 1:
-                return position
-            else:
-                print("Error, The Employee Position should be at least 1 Characters")
-
-
-    def read_year():
-        while True:
-            year_str = input("Please Enter the Employee Birth Year:")
-            year_str = year_str.strip()
-
-            if year_str.isdigit():
-                year = int(year_str)
-                if (year >= 1900) and (year <= 2004):
-                    return year
-                else:
-                    print("Error, The Employee Birth Year should be between 1900 and 2004")
-            else:
-                print("Error, The Employee Birth Year should be a number")
-
-
-    def read_month():
-        while True:
-            month_str = input("Please Enter the Employee Birth Month:")
-            month_str = month_str.strip()
-
-            if month_str.isdigit():
-                month = int(month_str)
-                if (month >= 1) and (month <= 12):
-                    return month
-                else:
-                    print("Error, The Employee Birth Month should be between 1 and 12")
-            else:
-                print("Error, The Employee Birth Month should be a number")
-
-
-    def read_day():
-        while True:
-            day_str = input("Please Enter the Employee Birth Day:")
-            day_str = day_str.strip()
-
-            if day_str.isdigit():
-                day = int(day_str)
-                if (day >= 1) and (day <= 31):
-                    return day
-                else:
-                    print("Error, The Employee Birth Day should be between 1 and 31")
-            else:
-                print("Error, The Employee Birth Day should be a number")
-
-
-    def read_is_graduated():
+def read_is_graduated():
         while True:
             is_graduated_str = input("Have the Employee graduated from the univesity (y/n):")
             is_graduated_str = is_graduated_str.strip()
@@ -137,26 +185,28 @@ class Employee:
                 print("Error, Please Enter y or n")
 
 
-    def create_employee_dictionary():
+def create_employee_dictionary():
+    employee_id = read_employee_id()
+    employee_firstname = read_first_name()
+    employee_lastname = read_last_name()
+    employee_position = read_position()
 
-        employee_firstname = read_first_name()
-        employee_lastname = read_last_name()
-        employee_position = read_position()
+    employee_birthy = read_year()
+    employee_birthm = read_month()
 
-        employee_birthy = read_year()
-        employee_birthm = read_month()
-        employee_birthd = read_day()
+    employee_birthd = read_day()
 
-        employee_g = read_is_graduated()
+    employee_g = read_is_graduated()
 
-        employee_id = read_employee_id()
 
-        emp = Employee(employee_id, employee_firstname, employee_lastname, employee_position, employee_birthd,
-                       employee_birthm, employee_birthy, employee_g)
 
-        employee_dict[employee_id] = emp
+    emp = Employee(employee_id, employee_firstname, employee_lastname, employee_position, employee_birthd,
+                   employee_birthm, employee_birthy, employee_g)
 
-        return emp
+    employee_dict[employee_id] = emp
+
+    print(emp)
+    return emp
 
 
 def read_employee_id():
@@ -175,9 +225,9 @@ def read_employee_id():
 
 
 def print_all_employees_data():
-    for employee_id_key in all_employees_dict:
+    for employee_id_key in employee_dict:
         print(f"(The data of the employee with Employee_ID = {employee_id_key}")
-        print(all_employees_dict[employee_id_key])
+        print(employee_dict[employee_id_key])
 
 
 def read_field_option():
@@ -191,40 +241,11 @@ def read_field_option():
             print("Please enter one of the mentioned fields")
 
 
-def update_employee_data(employee_id):
-    field_option = read_field_option()
-    if field_option == "first_name":
-        new_first_name = read_first_name()
-        #employee_record = all_employees_dict[employee_id]
-        #employee_record['first_name'] = new_first_name
-        all_employees_dict[employee_id]['first_name'] = new_first_name
-    elif field_option == "last_name":
-        new_last_name = read_last_name()
-        all_employees_dict[employee_id]["last_name"] = new_last_name
-    elif field_option == "employee_position":
-        new_position = read_position()
-        all_employees_dict[employee_id]["employee_position"] = new_position
-    elif field_option == "birth_year":
-        new_birth_year = read_year()
-        all_employees_dict[employee_id]["birth_year"] = new_birth_year
-    elif field_option == "birth_month":
-        new_birth_month = read_month()
-        all_employees_dict[employee_id]["birth_month"] = new_birth_month
-    elif field_option == "birth_day":
-        new_birth_day = read_day()
-        all_employees_dict[employee_id]["birth_day"] = new_birth_day
-    elif field_option == "is_graduated":
-        new_is_graduated = read_is_graduated()
-        all_employees_dict[employee_id]["is_graduated"] = new_is_graduated
-
-
-
 #id, firstname, lastname, position, birth_day, birth_month, birth_year, graduated
 
 
 if __name__ == "__main__":
 
-    employee_list = []
     employee_dict = {}
 
     while True:
@@ -234,7 +255,7 @@ if __name__ == "__main__":
             print("The user wants to add an Employee")
             employee_dict = create_employee_dictionary()
 
-            # employee_id = read_employee_id()
+            employee_id = read_employee_id()
             employee_id = employee_dict["id"]
 
             all_employees_dict[employee_id] = employee_dict
@@ -273,8 +294,13 @@ if __name__ == "__main__":
 
 
 
+
+
+
+
+
             #employee_id = input("Please Enter the Employee ID: ")
-            employee_firstname = Employee.read_first_name()
+            #employee_firstname = Employee.read_first_name()
 
 
 
