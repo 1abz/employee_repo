@@ -71,6 +71,8 @@ class Employee:
         print(f"Employee birth year: {self.ebirth_year}")
         print(f"Employee graduated?  {self.egraduated}")
 
+    def __str__(self):
+
 
     def update_eid(self, new_employeeid):
         if new_employeeid > 0:
