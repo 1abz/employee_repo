@@ -61,6 +61,9 @@ class Employee:
     def get_emp_id(self):
         return self.eid
 
+    def __str__(self):
+        return f"'first_name': '{self.efirst_name}', 'last_name': '{self.elast_name}', 'birth_year':'{self.ebirth_year}', 'birth_month':'{self.ebirth_month}', 'birth_day': '{self.ebirth_day}', 'emp_position':'{self.eposition}', 'is_graduated': '{self.egraduated}', 'emp_id': '{self.eid}'"
+
     def print_employee_info(self):
         print(f'Employee ID: {self.eid}')
         print(f"Employee first name: {self.efirst_name}")
@@ -70,16 +73,6 @@ class Employee:
         print(f"Employee birth month: {self.ebirth_month}")
         print(f"Employee birth year: {self.ebirth_year}")
         print(f"Employee graduated?  {self.egraduated}")
-
-    def __str__(self):
-
-
-    def update_eid(self, new_employeeid):
-        if new_employeeid > 0:
-            self.eid = new_employeeid
-            print (f"Employee's Updated ID is {self.eid}")
-        else:
-            print("Updated Employee ID is not accepted")
 
 
 
@@ -187,7 +180,7 @@ def read_is_graduated():
                 print("Error, Please Enter y or n")
 
 
-def create_employee_dictionary():
+def create_employee_object():
     employee_id = read_employee_id()
     employee_firstname = read_first_name()
     employee_lastname = read_last_name()
@@ -200,16 +193,39 @@ def create_employee_dictionary():
 
     employee_g = read_is_graduated()
 
-
-
     emp = Employee(employee_id, employee_firstname, employee_lastname, employee_position, employee_birthd,
                    employee_birthm, employee_birthy, employee_g)
 
-    employee_dict[employee_id] = emp
+    #employee_dict[employee_id] = emp
 
-    print(emp)
     return emp
 
+
+def update_employee(employee_id):
+    field_option = read_field_option()
+    if field_option == "first_name":
+        new_first_name = read_first_name()
+        #employee_record = employee_dict[employee_id]
+        #employee_record['first_name'] = new_first_name
+        employee_dict[employee_id].set_first_name(new_first_name)
+    elif field_option == "last_name":
+        new_last_name = read_last_name()
+        employee_dict[employee_id].set_last_name( new_last_name)
+    elif field_option == "position":
+        new_position = read_position()
+        employee_dict[employee_id].set_emp_position(new_position)
+    elif field_option == "birth_year":
+        new_birth_year = read_year()
+        employee_dict[employee_id].set_birth_year(new_birth_year)
+    elif field_option == "birth_month":
+        new_birth_month = read_month()
+        employee_dict[employee_id].set_birth_month(new_birth_month)
+    elif field_option == "birth_day":
+        new_birth_day = read_day()
+        employee_dict[employee_id].set_birth_day(new_birth_day)
+    elif field_option == "is_graduated":
+        new_is_graduated = read_is_graduated()
+        employee_dict[employee_id].set_is_graduated(new_is_graduated)
 
 def read_employee_id():
     while True:
@@ -218,7 +234,7 @@ def read_employee_id():
 
         if id_str.isdigit():
             id = int(id_str)
-            if id > 0 :
+            if id > 0:
                 return id
             else:
                 print("Error, The Employee ID should be positive number")
@@ -255,19 +271,20 @@ if __name__ == "__main__":
 
         if option == "add":
             print("The user wants to add an Employee")
-            employee_dict = create_employee_dictionary()
+            employee_object = create_employee_object()
 
-            employee_id = read_employee_id()
-            employee_id = employee_dict["id"]
+            employee_id = employee_object.get_emp_id()
+            #employee_id = employee_object["employee_id"]
 
-            all_employees_dict[employee_id] = employee_dict
+            employee_dict[employee_id] = employee_object
 
-            print(all_employees_dict)
+            print(employee_dict.get(employee_id))
 
         elif option == "remove":
             print("The user wants to remove an Employee")
             employee_id = read_employee_id()
-            del all_employees_dict[employee_id]
+            del employee_dict[employee_id]
+
 
         elif option == "list":
             print("The user wants a list of the employees")
@@ -276,16 +293,17 @@ if __name__ == "__main__":
         elif option == "update":
             print("The user wants to update the data of an employee")
             employee_id = read_employee_id()
-            update_employee_data(employee_id)
+            update_employee(employee_id)
+            print(employee_dict.get(employee_id))
 
         elif option == "total":
             print("The user wants the total number of employees")
-            print(len(all_employees_dict))
+            print(len(employee_dict))
 
         elif option == "retrieve":
             print("The user wants to retrieve an Employee using ID")
             employee_id = read_employee_id()
-            print(all_employees_dict[employee_id])
+            print(employee_dict.get(employee_id))
 
         elif option == "exit":
             print("Thanks, see you later")
